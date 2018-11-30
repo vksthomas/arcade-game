@@ -1,15 +1,19 @@
 // Enemies our player must avoid
+//let default_x;
+//let default_y;
 class Enemy  
 {
     //
-    constructor() {
+    constructor(a,b) {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
      
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
-        this.x = 10;
-        this.y = 150;
+        this.default_x = a;
+        this.default_y = b;
+        this.x = this.default_x;
+        this.y = this.default_y;
         this.sprite = 'images/enemy-bug.png';
     }
     
@@ -17,7 +21,7 @@ class Enemy
     // Parameter: dt, a time delta between ticks
     update(dt) {
         if(this.x<500){
-       
+
         console.log(this.x)
         this.x = this.x * 1.02;
         //console.log(this.x)
@@ -25,6 +29,13 @@ class Enemy
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
       }  // all computers.
+      if (this.x == 494.5769102636695){
+         console.log(this.x);
+          this.x = this.default_x;
+          this.y = this.default_y;
+          console.log(this.y);
+          this.render();
+      }
     };
     
     // Draw the enemy on the screen, required method for game
@@ -84,8 +95,9 @@ class player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = ['one','two','three'];
-const enemy_obj = new Enemy();
+const allEnemies = [1,2,3];
+const enemy_obj = new Enemy(10,150);
+const enemy_obj_2 = new Enemy(10,225);
 const player_obj = new player();
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
