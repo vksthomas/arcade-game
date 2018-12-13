@@ -38,13 +38,11 @@ var Engine = (function(global) {
          * would be the same for everyone (regardless of how fast their
          * computer is) - hurray time!
          */
-        var now = Date.now(),
-            dt = (now - lastTime) / 1000.0;
-
+       
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-        update(dt);
+        update();
         render();
 
         /* Set our lastTime variable which is used to determine the time delta
@@ -64,8 +62,6 @@ var Engine = (function(global) {
      */
     function init() {
         reset();
-        lastTime = Date.now();
-        console.log(lastTime);
         main();
     }
 
@@ -78,9 +74,9 @@ var Engine = (function(global) {
      * functionality this way (you could just implement collision detection
      * on the entities themselves within your app.js file).
      */
-    function update(dt) {
-      updateEntities(dt);
-        // checkCollisions();
+    function update() {
+      updateEntities();
+    
     }
 
     /* This is called by the update function and loops through all of the
@@ -90,12 +86,12 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
-    function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
-            enemy_obj.update(dt);
-            enemy_obj_2.update(dt);
-        });
-     //   player.update();
+    function updateEntities() {
+       allEnemies.forEach(function(enemy) {
+           
+            enemy.update();
+       });
+        player_obj.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -151,21 +147,14 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-     //   allEnemies.forEach(function(enemy) {
-           enemy_obj.render();
-           enemy_obj_2.render();
-     //   });
+       allEnemies.forEach(function(enemy) {
+           enemy.render();
+      });
          
         player_obj.render();
     }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
-     */
-    function reset() {
-        // noop
-    }
+    
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
