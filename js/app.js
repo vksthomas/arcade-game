@@ -167,7 +167,6 @@ const enemy_obj_2 = new Enemy(140);
 const enemy_obj_3 = new Enemy(220);
 const enemy_obj_4_x_array = [60, 140, 220];
 let item = enemy_obj_4_x_array[Math.floor(Math.random()*enemy_obj_4_x_array.length)];
-console.log(item);
 let enemy_obj_4 = new Enemy(item);
 const allEnemies = [enemy_obj, enemy_obj_2, enemy_obj_3, enemy_obj_4];
 const player_obj = new player();
@@ -177,7 +176,7 @@ let level;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function (e) {
+document.addEventListener('keydown', function (e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -193,7 +192,6 @@ document.addEventListener('keyup', function (e) {
 function level_update()
         {
             level = document.getElementById("level_count_id");
-            console.log(level_count);
             level_count = level_count + 1;
             level.innerHTML = level_count;
     
