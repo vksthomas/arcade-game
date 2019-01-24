@@ -48,7 +48,7 @@ var Engine = (function(global) {
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
          */
-        lastTime = now;
+        // lastTime = now;
 
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
@@ -61,7 +61,7 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
-        reset();
+        // reset();
         main();
     }
 
