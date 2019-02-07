@@ -1,7 +1,9 @@
 # Udacity Classic Arcade Game 
 In this game you have a Player and Enemies (Bugs). The goal of the player is to reach the water, without colliding into any one of the enemies.
 ## Run
-
+* [Live Project Click Here](https://vksthomas.github.io/arcade-game/)
+  
+  ** OR **
 * Click on "Clone or Download" on this repository page and download it as ZIP. Extract the folder content and open "index.html" from a browser for the game to run.
 
   ** OR **
